@@ -2,7 +2,7 @@
 
 This is the personal portfolio website of SJ Arulprasaad, built using HTML, Tailwind CSS, and deployed via GitHub Pages.
 
-🔗 Live site: https://Arulprasaad03.github.io/
+🔗 Live site: http https://arulprasaad03.github.io/Portfolio/
 
 ## 🔧 Tech Stack
 - HTML5
