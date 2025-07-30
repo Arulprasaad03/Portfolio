@@ -6,64 +6,91 @@
   <title>SJ Arulprasaad Portfolio</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
-    /* Simple fade-in animation */
+    /* Smooth fade-in animation */
     .fade-in {
-      animation: fadeIn 1.2s ease-in;
+      animation: fadeIn 2.5s ease-in;
     }
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px);}
-      to { opacity: 1; transform: translateY(0);}
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    /* Animated gradient text */
+    /* Gradient text animation */
     .gradient-text {
-      background: linear-gradient(90deg, #3b82f6, #9333ea, #3c88f2);
+      background: linear-gradient(90deg, #1e40af, #6b21a8, #2dd4bf, #1e40af);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      animation: gradientMove 3s linear infinite;
-      background-size: 200% 200%;
+      animation: gradientMove 6s linear infinite;
+      background-size: 400% 400%;
     }
     @keyframes gradientMove {
-      0% {background-position: 0% 50%;}
-      100% {background-position: 100% 50%;}
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
     /* Card hover effect */
     .card-hover:hover {
-      transform: translateY(-6px) scale(1.03);
-      box-shadow: 0 10px 24px rgba(59,130,246,0.15);
+      transform: translateY(-10px);
+      box-shadow: 0 12px 28px rgba(30, 64, 175, 0.2);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+    /* Circular progress animation */
+    .progress-circle {
+      stroke-dasharray: 283;
+      stroke-dashoffset: 283;
+      animation: drawCircle 3s ease-in-out forwards;
+    }
+    @keyframes drawCircle {
+      to { stroke-dashoffset: var(--dash-offset); }
+    }
+    /* Infinite horizontal scroll */
+    .scroll-container {
+      display: flex;
+      animation: scroll 25s linear infinite;
+    }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    /* Pause scroll on hover */
+    .scroll-container:hover {
+      animation-play-state: paused;
     }
   </style>
 </head>
-<body class="bg-gray-100 text-gray-900">
+<body class="bg-gray-50 text-gray-900">
 
   <!-- Navbar -->
-  <header class="bg-blue-300 shadow fixed top-0 left-0 right-0 z-50">
+  <header class="bg-gradient-to-r from-blue-800 to-purple-900 shadow fixed top-0 left-0 right-0 z-50">
     <div class="container mx-auto flex justify-between items-center p-4">
-      <h1 class="text-4xl font-extrabold gradient-text mb-2">A♠️</h1>
-      <nav class="space-x-4">
-        <a href="#about" class="hover:text-blue-600">About</a>
-        <a href="#projects" class="hover:text-blue-600">Projects</a>
-        <a href="#skills" class="hover:text-blue-600">Skills</a>
-        <a href="#contact" class="hover:text-blue-600">Contact</a>
+      <h1 class="text-4xl font-extrabold gradient-text">A♠️</h1>
+      <nav class="space-x-6">
+        <a href="#about" class="text-white hover:text-teal-300 transition">About</a>
+        <a href="#projects" class="text-white hover:text-teal-300 transition">Projects</a>
+        <a href="#education" class="text-white hover:text-teal-300 transition">Education</a>
+        <a href="#skills" class="text-white hover:text-teal-300 transition">Skills</a>
+        <a href="#expertise" class="text-white hover:text-teal-300 transition">Expertise</a>
+        <a href="#contact" class="text-white hover:text-teal-300 transition">Contact</a>
       </nav>
     </div>
   </header>
-<br>
+
   <!-- Hero Section -->
-  <section class="pt-28 pb-12 bg-gradient-to-r from-blue-100 via-purple-100 to-orange-100 fade-in">
-    <div class="max-w-4xl mx-auto flex flex-col items-center">
-      <!-- Profile Photo Placeholder -->
+  <section class="pt-28 pb-12 relative fade-in">
+    <svg class="absolute inset-0 w-full h-full" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path fill="#60a5fa" fill-opacity="0.1" d="M0,160 C360,240 1080,80 1440,160 L1440,320 L0,320 Z" />
+    </svg>
+    <div class="max-w-4xl mx-auto flex flex-col items-center relative">
       <div class="w-32 h-32 rounded-full overflow-hidden shadow-lg mb-6 border-4 border-blue-400 animate-bounce">
         <img src="profile.png" alt="Your Photo" class="object-cover w-full h-full" />
         <!-- Replace 'your-photo.jpg' with your actual photo -->
       </div>
-      <h1 class="text-4xl font-extrabold gradient-text mb-2">SJ Arulprasaad</h1>
-      <p class="text-lg text-gray-700 mb-4">ML & Data Enginner | Gen AI Enthusiast | Quantum Computing Techniques | Architecture and Pipeline Designing</p>
-      <a href="Resume.pdf" download class="px-6 py-2 bg-blue-600 text-white rounded-full shadow hover:bg-blue-700 transition mb-2">Download Resume</a>
-      <!-- Animated SVG divider -->
+      <h1 class="text-5xl font-extrabold gradient-text mb-2">SJ Arulprasaad 🚀</h1>
+      <p class="text-lg text-gray-700 mb-4">ML & Data Engineer | Gen AI Enthusiast | Quantum Computing | Pipeline Architect</p>
+      <a href="Resume.pdf" download class="px-6 py-2 bg-blue-600 text-white rounded-full shadow hover:bg-blue-700 transition mb-2">Download Resume 📄</a>
       <svg height="30" width="200" class="my-4">
-        <ellipse cx="100" cy="15" rx="90" ry="10" fill="#3b82f6" fill-opacity="0.15">
-          <animate attributeName="rx" values="90;60;90" dur="2s" repeatCount="indefinite"/>
+        <ellipse cx="100" cy="15" rx="90" ry="10" fill="#2dd4bf" fill-opacity="0.2">
+          <animate attributeName="rx" values="90;70;90" dur="4s" repeatCount="indefinite" />
         </ellipse>
       </svg>
     </div>
@@ -71,184 +98,342 @@
 
   <!-- Main content -->
   <main class="pt-4 px-4 sm:px-8">
-    
-    <!-- About Section -->
-    <section id="about" class="py-16">
-      <div class="max-w-3xl mx-auto text-center">
-        <h2 class="text-3xl font-semibold text-center mb-12 gradient-text">About Me</h2>
-        <p class="text-gray-700 text-lg">
-          As a top-ranked Computer Science undergraduate at VIT Chennai, specializing in Artificial Intelligence and Machine Learning (Rank 1 – Semester 1), I am passionate about solving real-world problems using deep learning, natural language processing, and generative AI techniques. My work spans cutting-edge areas such as transformer-based models, WGAN architectures, and quantum-inspired similarity scoring for anomaly detection in large imbalanced datasets. With hands-on experience building full-stack AI applications using PyTorch, Hugging Face, and FastAPI/Streamlit, I emphasize both model performance and deployment efficiency.
 
-I bring a balanced profile of academic excellence and extracurricular discipline—being a state-level table tennis player, I’ve developed resilience, focus, and a competitive edge that complements my technical mindset. From detecting cyberbullying using sarcasm-aware multi-BERT systems to building scalable AI dashboards, I combine research-level depth with production-level practicality. I’m actively seeking impactful internship and research opportunities where I can innovate, collaborate, and bring intelligent systems to life.
+    <!-- About Section -->
+    <section id="about" class="py-16 relative fade-in">
+      <svg class="absolute inset-0 w-full h-full" viewBox="0 0 1440 320" preserveAspectRatio="none">
+        <path fill="#a78bfa" fill-opacity="0.1" d="M0,192 C480,96 960,288 1440,192 L1440,320 L0,320 Z" />
+      </svg>
+      <div class="max-w-3xl mx-auto text-center relative">
+        <h2 class="text-3xl font-semibold mb-12 gradient-text">About Me 🌟</h2>
+        <p class="text-gray-700 text-lg">
+          🎓 Top-ranked Computer Science undergraduate at VIT Chennai, specializing in AI/ML (Rank 1 – Semester 1). I tackle real-world challenges with deep learning, NLP, and generative AI, excelling in transformers, WGANs, and quantum-inspired anomaly detection. My full-stack AI apps, built with PyTorch, Hugging Face, and FastAPI/Streamlit, prioritize performance and scalability.<br><br>
+          🏓 As a state-level table tennis player, I bring resilience and focus to my work. From sarcasm-aware cyberbullying detection to scalable AI dashboards, I blend research depth with practical deployment. I’m seeking internships and research opportunities to innovate and build intelligent systems! 💡
         </p>
       </div>
     </section>
-    
+
+    <!-- Expertise Progress Section -->
+    <section id="expertise" class="py-16 relative fade-in">
+      <svg class="absolute inset-0 w-full h-full" viewBox="0 0 1440 320" preserveAspectRatio="none">
+        <path fill="#2dd4bf" fill-opacity="0.1" d="M0,128 C360,64 1080,192 1440,128 L1440,320 L0,320 Z" />
+      </svg>
+      <div class="max-w-6xl mx-auto text-center relative">
+        <h2 class="text-3xl font-semibold mb-12 gradient-text">Expertise Progress</h2>
+        <br>
+        <div class="overflow-hidden">
+          <div class="scroll-container flex w-[300%]">
+            <!-- Original content -->
+            <div class="flex w-1/2 space-x-16 justify-center">
+              <div class="flex flex-col items-center">
+                <svg class="w-32 h-32" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="#e5e7eb" stroke-width="10" />
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="#1e40af" stroke-width="10" stroke-linecap="round" class="progress-circle" style="--dash-offset: 28.3;" />
+                  <text x="50" y="55" text-anchor="middle" class="text-2xl font-bold fill-gray-700">90%</text>
+                </svg>
+                <h3 class="text-lg font-bold mt-4">Data Science 📈</h3>
+              </div>
+              <div class="flex flex-col items-center">
+                <svg class="w-32 h-32" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="#e5e7eb" stroke-width="10" />
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="#1e40af" stroke-width="10" stroke-linecap="round" class="progress-circle" style="--dash-offset: 14.15;" />
+                  <text x="50" y="55" text-anchor="middle" class="text-2xl font-bold fill-gray-700">95%</text>
+                </svg>
+                <h3 class="text-lg font-bold mt-4">Python 🐍</h3>
+              </div>
+              <div class="flex flex-col items-center">
+                <svg class="w-32 h-32" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="#e5e7eb" stroke-width="10" />
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="#6b21a8" stroke-width="10" stroke-linecap="round" class="progress-circle" style="--dash-offset: 85;" />
+                  <text x="50" y="55" text-anchor="middle" class="text-2xl font-bold fill-gray-700">70%</text>
+                </svg>
+                <h3 class="text-lg font-bold mt-4">Front End 🌐</h3>
+              </div>
+              <div class="flex flex-col items-center">
+                <svg class="w-32 h-32" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="#e5e7eb" stroke-width="10" />
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="#6b21a8" stroke-width="10" stroke-linecap="round" class="progress-circle" style="--dash-offset: 113.2;" />
+                  <text x="50" y="55" text-anchor="middle" class="text-2xl font-bold fill-gray-700">60%</text>
+                </svg>
+                <h3 class="text-lg font-bold mt-4">DevOps ⚙️</h3>
+              </div>
+              <div class="flex flex-col items-center">
+                <svg class="w-32 h-32" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="#e5e7eb" stroke-width="10" />
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="#6b21a8" stroke-width="10" stroke-linecap="round" class="progress-circle" style="--dash-offset: 85;" />
+                  <text x="50" y="55" text-anchor="middle" class="text-2xl font-bold fill-gray-700">70%</text>
+                </svg>
+                <h3 class="text-lg font-bold mt-4">MLOps 🛠️</h3>
+              </div>
+              <div class="flex flex-col items-center">
+                <svg class="w-32 h-32" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="#e5e7eb" stroke-width="10" />
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="#2dd4bf" stroke-width="10" stroke-linecap="round" class="progress-circle" style="--dash-offset: 56.6;" />
+                  <text x="50" y="55" text-anchor="middle" class="text-2xl font-bold fill-gray-700">80%</text>
+                </svg>
+                <h3 class="text-lg font-bold mt-4">ML 🤖</h3>
+              </div>
+              <div class="flex flex-col items-center">
+                <svg class="w-32 h-32" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="#e5e7eb" stroke-width="10" />
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="#2dd4bf" stroke-width="10" stroke-linecap="round" class="progress-circle" style="--dash-offset: 56.6;" />
+                  <text x="50" y="55" text-anchor="middle" class="text-2xl font-bold fill-gray-700">80%</text>
+                </svg>
+                <h3 class="text-lg font-bold mt-4">GenAI ✨</h3>
+              </div>
+              <div class="flex flex-col items-center">
+                <svg class="w-32 h-32" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="#e5e7eb" stroke-width="10" />
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="#2dd4bf" stroke-width="10" stroke-linecap="round" class="progress-circle" style="--dash-offset: 56.6;" />
+                  <text x="50" y="55" text-anchor="middle" class="text-2xl font-bold fill-gray-700">80%</text>
+                </svg>
+                <h3 class="text-lg font-bold mt-4">DL 🧠</h3>
+              </div>
+              <div class="flex flex-col items-center">
+                <svg class="w-32 h-32" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="#e5e7eb" stroke-width="10" />
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="#2dd4bf" stroke-width="10" stroke-linecap="round" class="progress-circle" style="--dash-offset: 56.6;" />
+                  <text x="50" y="55" text-anchor="middle" class="text-2xl font-bold fill-gray-700">80%</text>
+                </svg>
+                <h3 class="text-lg font-bold mt-4">NLP 🗣️</h3>
+              </div> 
+              <div class="flex flex-col items-center">
+                <svg class="w-32 h-32" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="#e5e7eb" stroke-width="10" />
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="#1e40af" stroke-width="10" stroke-linecap="round" class="progress-circle" style="--dash-offset: 28.3;" />
+                  <text x="50" y="55" text-anchor="middle" class="text-2xl font-bold fill-gray-700">90%</text>
+                </svg>
+                <h3 class="text-lg font-bold mt-4">Data Science 📈</h3>
+              </div>
+              <div class="flex flex-col items-center">
+                <svg class="w-32 h-32" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="#e5e7eb" stroke-width="10" />
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="#1e40af" stroke-width="10" stroke-linecap="round" class="progress-circle" style="--dash-offset: 14.15;" />
+                  <text x="50" y="55" text-anchor="middle" class="text-2xl font-bold fill-gray-700">95%</text>
+                </svg>
+                <h3 class="text-lg font-bold mt-4">Python 🐍</h3>
+              </div>
+              <div class="flex flex-col items-center">
+                <svg class="w-32 h-32" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="#e5e7eb" stroke-width="10" />
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="#6b21a8" stroke-width="10" stroke-linecap="round" class="progress-circle" style="--dash-offset: 85;" />
+                  <text x="50" y="55" text-anchor="middle" class="text-2xl font-bold fill-gray-700">70%</text>
+                </svg>
+                <h3 class="text-lg font-bold mt-4">Front End 🌐</h3>
+              </div>
+              <div class="flex flex-col items-center">
+                <svg class="w-32 h-32" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="#e5e7eb" stroke-width="10" />
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="#6b21a8" stroke-width="10" stroke-linecap="round" class="progress-circle" style="--dash-offset: 113.2;" />
+                  <text x="50" y="55" text-anchor="middle" class="text-2xl font-bold fill-gray-700">60%</text>
+                </svg>
+                <h3 class="text-lg font-bold mt-4">DevOps ⚙️</h3>
+              </div>
+              <div class="flex flex-col items-center">
+                <svg class="w-32 h-32" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="#e5e7eb" stroke-width="10" />
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="#6b21a8" stroke-width="10" stroke-linecap="round" class="progress-circle" style="--dash-offset: 85;" />
+                  <text x="50" y="55" text-anchor="middle" class="text-2xl font-bold fill-gray-700">70%</text>
+                </svg>
+                <h3 class="text-lg font-bold mt-4">MLOps 🛠️</h3>
+              </div>
+              <div class="flex flex-col items-center">
+                <svg class="w-32 h-32" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="#e5e7eb" stroke-width="10" />
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="#2dd4bf" stroke-width="10" stroke-linecap="round" class="progress-circle" style="--dash-offset: 56.6;" />
+                  <text x="50" y="55" text-anchor="middle" class="text-2xl font-bold fill-gray-700">80%</text>
+                </svg>
+                <h3 class="text-lg font-bold mt-4">ML 🤖</h3>
+              </div>
+              <div class="flex flex-col items-center">
+                <svg class="w-32 h-32" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="#e5e7eb" stroke-width="10" />
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="#2dd4bf" stroke-width="10" stroke-linecap="round" class="progress-circle" style="--dash-offset: 56.6;" />
+                  <text x="50" y="55" text-anchor="middle" class="text-2xl font-bold fill-gray-700">80%</text>
+                </svg>
+                <h3 class="text-lg font-bold mt-4">GenAI ✨</h3>
+              </div>
+              <div class="flex flex-col items-center">
+                <svg class="w-32 h-32" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="#e5e7eb" stroke-width="10" />
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="#2dd4bf" stroke-width="10" stroke-linecap="round" class="progress-circle" style="--dash-offset: 56.6;" />
+                  <text x="50" y="55" text-anchor="middle" class="text-2xl font-bold fill-gray-700">80%</text>
+                </svg>
+                <h3 class="text-lg font-bold mt-4">DL 🧠</h3>
+              </div>
+              <div class="flex flex-col items-center">
+                <svg class="w-32 h-32" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="#e5e7eb" stroke-width="10" />
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="#2dd4bf" stroke-width="10" stroke-linecap="round" class="progress-circle" style="--dash-offset: 56.6;" />
+                  <text x="50" y="55" text-anchor="middle" class="text-2xl font-bold fill-gray-700">80%</text>
+                </svg>
+                <h3 class="text-lg font-bold mt-4">NLP 🗣️</h3>
+              </div>         
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Projects Section -->
-<section id="projects" class="py-16 bg-white fade-in">
-  <div class="max-w-6xl mx-auto px-4">
-    <h2 class="text-3xl font-semibold text-center mb-12 gradient-text">Projects</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center">
-      
-      <!-- Project Card -->
-      <div class="w-full max-w-sm bg-gray-100 p-6 rounded-xl shadow card-hover transition text-center">
-        <h3 class="text-xl font-bold mb-3">Advanced NeuroLoop WGAN</h3>
-        <p class="text-gray-600 mb-4">
-            Developed a customized Wasserstein GAN with NeuroLoop feedback layers to stabilize training and generate high-fidelity images across severely imbalanced datasets.
-Excels in medical imaging, satellite data synthesis, and other domains where data scarcity and mode collapse hinder generative performance.
-        </p>
-        <a href="https://github.com/Arulprasaad03/neuroloop-gan" target="_blank" class="inline-flex items-center text-blue-600 hover:underline text-sm">
-          <svg class="w-4 h-4 mr-1 fill-current" viewBox="0 0 24 24">
-            <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.42 7.86 10.96.58.1.79-.25.79-.55v-2.17c-3.2.7-3.87-1.39-3.87-1.39-.53-1.33-1.3-1.69-1.3-1.69-1.07-.73.08-.72.08-.72 1.18.08 1.8 1.21 1.8 1.21 1.05 1.79 2.75 1.28 3.42.98.1-.76.41-1.28.75-1.58-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.2-3.1-.12-.29-.52-1.46.11-3.05 0 0 .98-.31 3.2 1.18a11.1 11.1 0 0 1 2.92-.39c.99 0 1.99.13 2.92.39 2.22-1.49 3.19-1.18 3.19-1.18.63 1.59.23 2.76.12 3.05.75.81 1.2 1.84 1.2 3.1 0 4.43-2.71 5.4-5.3 5.69.43.37.8 1.1.8 2.22v3.29c0 .3.21.65.8.55A10.998 10.998 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/>
-          </svg>
-          View on GitHub
-        </a>
+    <section id="projects" class="py-16 bg-white relative fade-in">
+      <svg class="absolute inset-0 w-full h-full" viewBox="0 0 1440 320" preserveAspectRatio="none">
+        <circle cx="180" cy="160" r="80" fill="#2dd4bf" fill-opacity="0.05" />
+        <circle cx="1260" cy="160" r="80" fill="#2dd4bf" fill-opacity="0.05" />
+      </svg>
+      <div class="max-w-6xl mx-auto px-4 relative">
+        <h2 class="text-3xl font-semibold text-center mb-12 gradient-text">Projects 🛠️</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center">
+          <div class="w-full max-w-sm bg-gray-50 p-6 rounded-xl shadow card-hover text-center">
+            <svg class="w-12 h-12 mx-auto mb-4" fill="none" stroke="#1e40af" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M12 2a10 10 0 100 20 10 10 0 000-20z" />
+              <path d="M8 14s1.5-2 4-2 4 2 4 2" />
+            </svg>
+            <h3 class="text-xl font-bold mb-3">Advanced NeuroLoop WGAN</h3>
+            <p class="text-gray-600 mb-4">
+              🧠 Built a Wasserstein GAN with NeuroLoop feedback to generate high-fidelity images for imbalanced datasets, excelling in medical imaging and satellite data synthesis. 🌌
+            </p>
+            <a href="https://github.com/Arulprasaad03/neuroloop-gan" target="_blank" class="inline-flex items-center text-blue-600 hover:underline text-sm">
+              <svg class="w-4 h-4 mr-1 fill-current" viewBox="0 0 24 24">
+                <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.42 7.86 10.96.58.1.79-.25.79-.55v-2.17c-3.2.7-3.87-1.39-3.87-1.39-.53-1.33-1.3-1.69-1.3-1.69-1.07-.73.08-.72.08-.72 1.18.08 1.8 1.21 1.8 1.21 1.05 1.79 2.75 1.28 3.42.98.1-.76.41-1.28.75-1.58-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.2-3.1-.12-.29-.52-1.46.11-3.05 0 0 .98-.31 3.2 1.18a11.1 11.1 0 0 1 2.92-.39c.99 0 1.99.13 2.92.39 2.22-1.49 3.19-1.18 3.19-1.18.63 1.59.23 2.76.12 3.05.75.81 1.2 1.84 1.2 3.1 0 4.43-2.71 5.4-5.3 5.69.43.37.8 1.1.8 2.22v3.29c0 .3.21.65.8.55A10.998 10.998 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/>
+              </svg>
+              View on GitHub
+            </a>
+          </div>
+          <div class="w-full max-w-sm bg-gray-50 p-6 rounded-xl shadow card-hover text-center">
+            <svg class="w-12 h-12 mx-auto mb-4" fill="none" stroke="#6b21a8" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M12 2l4 4-4 4" />
+              <path d="M4 12h16" />
+              <path d="M12 22l4-4-4-4" />
+            </svg>
+            <h3 class="text-xl font-bold mb-3">Quantum-Inspired Anomaly Detector</h3>
+            <p class="text-gray-600 mb-4">
+              ⚛️ Crafted a quantum-inspired similarity scoring system for anomaly detection, enhancing sensitivity in fraud detection, medical diagnostics, and cybersecurity. 🔍
+            </p>
+            <a href="https://github.com/Arulprasaad03/Quantum-inpired-Model" target="_blank" class="inline-flex items-center text-blue-600 hover:underline text-sm">
+              <svg class="w-4 h-4 mr-1 fill-current" viewBox="0 0 24 24">
+                <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.42 7.86 10.96.58.1.79-.25.79-.55v-2.17c-3.2.7-3.87-1.39-3.87-1.39-.53-1.33-1.3-1.69-1.3-1.69-1.07-.73.08-.72.08-.72 1.18.08 1.8 1.21 1.8 1.21 1.05 1.79 2.75 1.28 3.42.98.1-.76.41-1.28.75-1.58-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.2-3.1-.12-.29-.52-1.46.11-3.05 0 0 .98-.31 3.2 1.18a11.1 11.1 0 0 1 2.92-.39c.99 0 1.99.13 2.92.39 2.22-1.49 3.19-1.18 3.19-1.18.63 1.59.23 2.76.12 3.05.75.81 1.2 1.84 1.2 3.1 0 4.43-2.71 5.4-5.3 5.69.43.37.8 1.1.8 2.22v3.29c0 .3.21.65.8.55A10.998 10.998 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/>
+              </svg>
+              View on GitHub
+            </a>
+          </div>
+          <div class="w-full max-w-sm bg-gray-50 p-6 rounded-xl shadow card-hover text-center">
+            <svg class="w-12 h-12 mx-auto mb-4" fill="none" stroke="#2dd4bf" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5v14" />
+            </svg>
+            <h3 class="text-xl font-bold mb-3">Quantum Inspired Transformer Architecture</h3>
+            <p class="text-gray-600 mb-4">
+              🌐 Developing a quantum-inspired Transformer for enhanced text generation and multilingual moderation in noisy datasets. 🚧 Coming Soon!
+            </p>
+          </div>
+        </div>
       </div>
-
-      <!-- Project Card -->
-      <div class="w-full max-w-sm bg-gray-100 p-6 rounded-xl shadow card-hover transition text-center">
-        <h3 class="text-xl font-bold mb-3">Quantum-Inspired Anomaly Detector</h3>
-        <p class="text-gray-600 mb-4">
-          Designed a quantum-inspired similarity scoring system for robust anomaly detection in highly imbalanced datasets, enhancing sensitivity to subtle patterns and rare events.
-Especially effective in fraud detection, medical diagnostics, and cybersecurity where traditional models struggle with rare class identification.
-        </p>
-        <a href="https://github.com/Arulprasaad03/Quantum-inpired-Model" target="_blank" class="inline-flex items-center text-blue-600 hover:underline text-sm">
-          <svg class="w-4 h-4 mr-1 fill-current" viewBox="0 0 24 24">
-            <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.42 7.86 10.96.58.1.79-.25.79-.55v-2.17c-3.2.7-3.87-1.39-3.87-1.39-.53-1.33-1.3-1.69-1.3-1.69-1.07-.73.08-.72.08-.72 1.18.08 1.8 1.21 1.8 1.21 1.05 1.79 2.75 1.28 3.42.98.1-.76.41-1.28.75-1.58-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.2-3.1-.12-.29-.52-1.46.11-3.05 0 0 .98-.31 3.2 1.18a11.1 11.1 0 0 1 2.92-.39c.99 0 1.99.13 2.92.39 2.22-1.49 3.19-1.18 3.19-1.18.63 1.59.23 2.76.12 3.05.75.81 1.2 1.84 1.2 3.1 0 4.43-2.71 5.4-5.3 5.69.43.37.8 1.1.8 2.22v3.29c0 .3.21.65.8.55A10.998 10.998 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/>
-          </svg>
-          View on GitHub
-        </a>
-      </div>
-
-      <!-- Project Card -->
-      <div class="w-full max-w-sm bg-gray-100 p-6 rounded-xl shadow card-hover transition text-center">
-        <h3 class="text-xl font-bold mb-3">Quantum Inspired Transformer Architecture (Coming Soon)</h3>
-        <p class="text-gray-600 mb-4">
-            Developed a quantum-inspired Transformer that enriches contextual memory and semantic alignment, enabling more human-like text generation and deeper intent understanding.
-Especially effective in detecting harmful content in noisy, code-mixed, and imbalanced datasets—ideal for low-resource multilingual moderation tasks.
-        </p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
+    </section>
 
     <!-- Education Section -->
-<section id="education" class="py-16 fade-in">
-  <div class="max-w-3xl mx-auto text-center">
-    <h2 class="text-3xl font-semibold mb-4 gradient-text">Education</h2>
-    <div class="space-y-6">
-
-      
-      <!-- Class 10 -->
-      <div class="bg-white rounded-xl shadow p-6 card-hover">
-        <h3 class="text-xl font-bold mb-1">Class 10 – CBSE</h3>
-        <p class="text-gray-700">Maharishi Vidya Mandir Senior Secondary School — May 2021</p>
-        <p class="text-gray-500 text-sm">Score: 96%</p>
+    <section id="education" class="py-16 relative fade-in">
+      <svg class="absolute inset-0 w-full h-full" viewBox="0 0 1440 320" preserveAspectRatio="none">
+        <path fill="#60a5fa" fill-opacity="0.1" d="M0,96 C480,192 960,64 1440,160 L1440,320 L0,320 Z" />
+      </svg>
+      <div class="max-w-3xl mx-auto text-center relative">
+        <h2 class="text-3xl font-semibold mb-12 gradient-text">Education 🎓</h2>
+        <div class="space-y-6">
+          <div class="bg-white rounded-xl shadow p-6 card-hover relative">
+            <svg class="w-8 h-8 absolute top-4 left-4 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2l10 6.5v9L12 22 2 17.5v-9L12 2zm0 2.5L4 8.5v6.3l8 5 8-5v-6.3L12 4.5z" />
+            </svg>
+            <h3 class="text-xl font-bold mb-1">Class 10 – CBSE</h3>
+            <p class="text-gray-700">Maharishi Vidya Mandir Senior Secondary School — May 2021</p>
+            <p class="text-gray-500 text-sm">Score: 96% 🥇</p>
+          </div>
+          <div class="bg-white rounded-xl shadow p-6 card-hover relative">
+            <svg class="w-8 h-8 absolute top-4 left-4 text-purple-600" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2l10 6.5v9L12 22 2 17.5v-9L12 2zm0 2.5L4 8.5v6.3l8 5 8-5v-6.3L12 4.5z" />
+            </svg>
+            <h3 class="text-xl font-bold mb-1">Class 12 – CBSE</h3>
+            <p class="text-gray-700">Maharishi Vidya Mandir Senior Secondary School — May 2023</p>
+            <p class="text-gray-500 text-sm">Score: 94.5% 🥈</p>
+          </div>
+          <div class="bg-white rounded-xl shadow p-6 card-hover relative">
+            <svg class="w-8 h-8 absolute top-4 left-4 text-teal-500" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2l10 6.5v9L12 22 2 17.5v-9L12 2zm0 2.5L4 8.5v6.3l8 5 8-5v-6.3L12 4.5z" />
+            </svg>
+            <h3 class="text-xl font-bold mb-1">B.Tech in CSE (AI/ML)</h3>
+            <p class="text-gray-700">Vellore Institute of Technology, Chennai — 2023–2027</p>
+            <p class="text-gray-500 text-sm">CGPA: 9.43 | Rank 1 in Semester 1 🏆</p>
+          </div>
+        </div>
       </div>
-      <!-- Class 12 -->
-      <div class="bg-white rounded-xl shadow p-6 card-hover">
-        <h3 class="text-xl font-bold mb-1">Class 12 – CBSE</h3>
-        <p class="text-gray-700">Maharishi Vidya Mandir Senior Secondary School — May 2023</p>
-        <p class="text-gray-500 text-sm">Score: 94.5%</p>
-      </div>
-      <!-- College -->
-      <div class="bg-white rounded-xl shadow p-6 card-hover">
-        <h3 class="text-xl font-bold mb-1">B.Tech in CSE (AI/ML)</h3>
-        <p class="text-gray-700">Vellore Institute of Technology, Chennai — 2023–2027</p>
-        <p class="text-gray-500 text-sm">CGPA: 9.43 | Secured Rank 1 in First Semester</p>
-      </div>
-    </div>
-  </div>
-</section>
-
+    </section>
 
     <!-- Skills Section -->
-<section id="skills" class="py-16 bg-white fade-in">
-  <div class="max-w-5xl mx-auto text-center">
-    <h2 class="text-3xl font-semibold mb-12 gradient-text">Skills by Role</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 text-left text-gray-700">
-
-      <!-- AI/ML Engineer -->
-      <div class="p-6 bg-gray-100 rounded-xl shadow transition card-hover">
-        <div class="flex items-center gap-2 mb-4">
-          <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" stroke-width="2"
-            viewBox="0 0 24 24">
-            <path d="M12 2a10 10 0 100 20 10 10 0 000-20z" />
-            <path d="M8 14s1.5-2 4-2 4 2 4 2" />
-            <path d="M9 9h.01" /><path d="M15 9h.01" />
-          </svg>
-          <h3 class="text-xl font-bold">AI / ML Engineer</h3>
+    <section id="skills" class="py-16 bg-white relative fade-in">
+      <svg class="absolute inset-0 w-full h-full" viewBox="0 0 1440 320" preserveAspectRatio="none">
+        <circle cx="360" cy="160" r="60" fill="#a78bfa" fill-opacity="0.05" />
+        <circle cx="1080" cy="160" r="60" fill="#a78bfa" fill-opacity="0.05" />
+      </svg>
+      <div class="max-w-5xl mx-auto text-center relative">
+        <h2 class="text-3xl font-semibold mb-12 gradient-text">Skills by Role 🧰</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 text-left text-gray-700">
+          <div class="p-6 bg-gray-50 rounded-xl shadow card-hover">
+            <div class="flex items-center gap-2 mb-4">
+              <span class="text-2xl">🤖</span>
+              <h3 class="text-xl font-bold">AI / ML Engineer</h3>
+            </div>
+            <ul class="list-disc list-inside">
+              <li>PyTorch, TensorFlow, scikit-learn</li>
+              <li>Deep Learning, Computer Vision</li>
+              <li>Natural Language Processing (NLP)</li>
+              <li>Transformers (BERT, CLIP, Whisper)</li>
+              <li>Generative AI (GANs, VAEs, WGANs)</li>
+              <li>Quantum-Inspired Similarity Scoring</li>
+            </ul>
+          </div>
+          <div class="p-6 bg-gray-50 rounded-xl shadow card-hover">
+            <div class="flex items-center gap-2 mb-4">
+              <span class="text-2xl">⚙️</span>
+              <h3 class="text-xl font-bold">Full Stack & MLOps</h3>
+            </div>
+            <ul class="list-disc list-inside">
+              <li>Streamlit, FastAPI, Flask</li>
+              <li>React, HTML/CSS, Tailwind CSS</li>
+              <li>MLOps, Docker, GitHub Actions</li>
+              <li>Data Pipelines & Preprocessing</li>
+            </ul>
+          </div>
+          <div class="p-6 bg-gray-50 rounded-xl shadow card-hover">
+            <div class="flex items-center gap-2 mb-4">
+              <span class="text-2xl">💻</span>
+              <h3 class="text-xl font-bold">Dev Tools & Programming</h3>
+            </div>
+            <ul class="list-disc list-inside">
+              <li>Python, JavaScript, C++</li>
+              <li>Git, GitHub, VS Code</li>
+              <li>CI/CD, GitHub Actions</li>
+              <li>Shell Scripting Basics</li>
+            </ul>
+          </div>
         </div>
-        <ul class="list-disc list-inside">
-          <li>PyTorch, TensorFlow, scikit-learn</li>
-          <li>Deep Learning, Computer Vision</li>
-          <li>Natural Language Processing (NLP)</li>
-          <li>Transformers (BERT, CLIP, Whisper)</li>
-          <li>Generative AI (GANs, VAEs, WGANs)</li>
-          <li>Quantum-Inspired Similarity Scoring</li>
-        </ul>
       </div>
-
-      <!-- Full Stack / MLOps -->
-      <div class="p-6 bg-gray-100 rounded-xl shadow transition card-hover">
-        <div class="flex items-center gap-2 mb-4">
-          <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" stroke-width="2"
-            viewBox="0 0 24 24">
-            <path d="M3 4a1 1 0 011-1h16a1 1 0 011 1v16a1 1 0 01-1 1H4a1 1 0 01-1-1V4z" />
-            <path d="M4 7h16M4 12h16M4 17h16" />
-          </svg>
-          <h3 class="text-xl font-bold">Full Stack & MLOps</h3>
-        </div>
-        <ul class="list-disc list-inside">
-          <li>Streamlit, FastAPI, Flask</li>
-          <li>React, HTML/CSS, Tailwind CSS</li>
-          <li>MLOps, Docker, GitHub Actions</li>
-          <li>Data Pipelines & Preprocessing</li>
-        </ul>
-      </div>
-
-      <!-- Software & Dev Tools -->
-      <div class="p-6 bg-gray-100 rounded-xl shadow transition card-hover">
-        <div class="flex items-center gap-2 mb-4">
-          <svg class="w-6 h-6 text-purple-500" fill="none" stroke="currentColor" stroke-width="2"
-            viewBox="0 0 24 24">
-            <path d="M10 2l4 4-4 4" />
-            <path d="M4 12h16" />
-            <path d="M10 22l4-4-4-4" />
-          </svg>
-          <h3 class="text-xl font-bold">Dev Tools & Programming</h3>
-        </div>
-        <ul class="list-disc list-inside">
-          <li>Python, JavaScript, C++</li>
-          <li>Git, GitHub, VS Code</li>
-          <li>CI/CD, GitHub Actions</li>
-          <li>Shell Scripting Basics</li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-</section>
-
+    </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-16 fade-in">
-      <div class="max-w-2xl mx-auto text-center">
-        <h2 class="text-3xl font-semibold mb-6 gradient-text">Get in Touch</h2>
+    <section id="contact" class="py-16 relative fade-in">
+      <svg class="absolute inset-0 w-full h-full" viewBox="0 0 1440 320" preserveAspectRatio="none">
+        <path fill="#a78bfa" fill-opacity="0.1" d="M0,160 C360,80 1080,240 1440,160 L1440,320 L0,320 Z" />
+      </svg>
+      <div class="max-w-2xl mx-auto text-center relative">
+        <h2 class="text-3xl font-semibold mb-6 gradient-text">Get in Touch 📬</h2>
         <p class="text-gray-700 mb-4">Let's connect on GitHub, LinkedIn, or send me an email!</p>
         <div class="flex justify-center space-x-6 mb-4">
-          <a href="https://github.com/Arulprasaad03" target="_blank" class="text-gray-800 hover:text-black text-xl">
-            <svg class="w-6 h-6 inline" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.93.58.11.79-.25.79-.56v-2.02c-3.2.7-3.87-1.55-3.87-1.55-.53-1.35-1.29-1.7-1.29-1.7-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.76 2.7 1.25 3.36.96.11-.75.4-1.25.72-1.54-2.56-.29-5.26-1.28-5.26-5.69 0-1.26.45-2.3 1.2-3.11-.12-.29-.52-1.44.11-3.01 0 0 .97-.31 3.17 1.2a11 11 0 012.89-.39c.98.01 1.97.13 2.89.39 2.2-1.51 3.17-1.2 3.17-1.2.63 1.57.23 2.72.11 3.01.75.81 1.2 1.85 1.2 3.11 0 4.42-2.71 5.39-5.29 5.67.41.36.77 1.08.77 2.18v3.23c0 .31.21.67.8.56C20.71 21.39 24 17.08 24 12c0-6.27-5.23-11.5-12-11.5z"/></svg>
+          <a href="https://github.com/Arulprasaad03" target="_blank" class="text-gray-800 hover:text-blue-600 transition">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.93.58.11.79-.25.79-.56v-2.02c-3.2.7-3.87-1.55-3.87-1.55-.53-1.35-1.29-1.7-1.29-1.7-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.76 2.7 1.25 3.36.96.11-.75.4-1.25.72-1.54-2.56-.29-5.26-1.28-5.26-5.69 0-1.26.45-2.3 1.2-3.11-.12-.29-.52-1.44.11-3.01 0 0 .97-.31 3.17 1.2a11 11 0 012.89-.39c.98.01 1.97.13 2.89.39 2.2-1.51 3.17-1.2 3.17-1.2.63 1.57.23 2.72.11 3.01.75.81 1.2 1.85 1.2 3.11 0 4.42-2.71 5.39-5.29 5.67.41.36.77 1.08.77 2.18v3.23c0 .31.21.67.8.56C20.71 21.39 24 17.08 24 12c0-6.27-5.23-11.5-12-11.5z"/></svg>
           </a>
-          <a href="https://www.linkedin.com/in/arul-prasaad-95b25a285/" target="_blank" class="text-blue-700 hover:text-blue-900 text-xl">
-            <svg class="w-6 h-6 inline" fill="currentColor" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.4c0-1.3-.03-2.97-1.81-2.97-1.82 0-2.1 1.42-2.1 2.88v5.49H9.45V9h3.41v1.56h.05c.48-.9 1.66-1.83 3.41-1.83 3.65 0 4.33 2.4 4.33 5.52v6.2zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.11 20.45H3.56V9h3.55v11.45z"/></svg>
+          <a href="https://www.linkedin.com/in/arul-prasaad-95b25a285/" target="_blank" class="text-blue-700 hover:text-purple-600 transition">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.4c0-1.3-.03-2.97-1.81-2.97-1.82 0-2.1 1.42-2.1 2.88v5.49H9.45V9h3.41v1.56h.05c.48-.9 1.66-1.83 3.41-1.83 3.65 0 4.33 2.4 4.33 5.52v6.2zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.11 20.45H3.56V9h3.55v11.45z"/></svg>
           </a>
         </div>
         <div>
-          <span class="block text-gray-600">Email: <span class="font-semibold">arulprasaad21@gmail.com</span></span>
+          <span class="block text-gray-600">Email: <span class="font-semibold">arulprasaad21@gmail.com</span> ✉️</span>
         </div>
       </div>
     </section>
@@ -256,9 +441,16 @@ Especially effective in detecting harmful content in noisy, code-mixed, and imba
   </main>
 
   <!-- Footer -->
-  <footer class="text-center py-6 text-gray-500 text-sm fade-in">
-    © 2025 SJ Arulprasaad. All rights reserved.
+  <footer class="text-center py-6 text-gray-500 text-sm relative fade-in">
+    <svg class="absolute top-0 w-full h-12" viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path fill="#1e40af" fill-opacity="0.1" d="M0,50 C360,100 1080,0 1440,50 L1440,100 L0,100 Z" />
+    </svg>
+    <p>© 2025 SJ Arulprasaad. All rights reserved. 🌍</p>
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="mt-2 text-blue-600 hover:text-blue-800">
+      <svg class="w-6 h-6 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+      </svg>
+    </button>
   </footer>
 </body>
-</html>
 </html>
