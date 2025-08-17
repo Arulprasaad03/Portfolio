@@ -8,3 +8,5 @@ This is the personal portfolio website of SJ Arulprasaad, built using HTML, Tail
 - HTML5
 - Tailwind CSS
 - Custom animations, gradients & responsive design
+- Dark and Light Mode
+
